@@ -55,3 +55,15 @@ create table tra_trabalho (
 insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
  values ('Teste 1', current_timestamp(), 'Alpha', 6, 'Bom, mas falta conteúdo'),
  ('Teste 2', current_timestamp(), 'Beta', 3, 'Incompleto');
+
+create table alt_alerta (
+    alt_id bigint primary key auto_increment,
+    alt_mensagem varchar(100) not null,
+    alt_detalhe varchar(255),
+    alt_data_hora_geracao datetime not null,
+    alt_data_hora_verificacao datetime,
+    alt_nivel int
+);
+insert into alt_alerta(alt_mensagem, alt_data_hora_geracao, alt_nivel)
+ values ('Estouro de memoria', '2024-03-15 23:59:59', 1),
+ ('Espaço em disco', current_timestamp(), null)
